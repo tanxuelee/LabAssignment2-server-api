@@ -21,9 +21,8 @@ if ($result->num_rows > 0) {
         $sjlist['price'] = number_format((float)$sjprice, 2, '.', '');
         $sjlist['cartqty'] = $rows['cart_qty'];
         $sjlist['sjid'] = $rows['subject_id'];
-        $price = $rows['cart_qty'] * $sjprice;
-        $total_payable = $total_payable + $price;
-        $sjlist['pricetotal'] = number_format((float)$price, 2, '.', ''); 
+        $total_payable = $total_payable + $sjprice;
+        $sjlist['pricetotal'] = number_format((float)$sjprice, 2, '.', ''); 
         array_push($carts["cart"],$sjlist);
     }
     $response = array('status' => 'success', 'data' => $carts, 'total' => $total_payable);
